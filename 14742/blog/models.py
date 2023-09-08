@@ -11,7 +11,6 @@ class Author(models.Model):
 
 
 class BlogPost(models.Model):
-    id = models.AutoField(primary_key=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     body = models.TextField()
@@ -25,9 +24,8 @@ class BlogPost(models.Model):
         for comment in self.comments.all():
             Comment.objects.create(blog_post=new_post, text=comment.text)
         new_post.date_created = models.DateTimeField(auto_now_add=True)
-        new_post.id = models.AutoField(primary_key=True)
         new_post.save()
-        return new_post.id
+        return self.new_post.id
 
 
 class Comment(models.Model):
