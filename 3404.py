@@ -1,20 +1,19 @@
-m=int(input())
-n=float(input())
-b=round(m/n*n,2)
+# دریافت ورودی‌ها از کاربر
+weight = int(input())
+height = float(input())
 
+# محاسبه BMI
+bmi = weight / (height * height)
 
-x = m/float(n*n)
+# چاپ مقدار BMI تا دو رقم اعشار
+print(f"{bmi:.2f}")
 
-# print("%.2f" % x)
-# print("%.2f" % round(x, 2))
-# print( "{:.2f}".format(round(13.949, 2)))
-print(float(round(x,2)))
-
-if x < 18.5:
-    print('Underweight')
-if x>=18.5 and x<25:
+# تشخیص وضعیت تناسب اندام بر اساس مقدار BMI
+if bmi < 18.5:
+    print("Underweight")
+elif 18.5 <= bmi < 25:
     print("Normal")
-if x >= 25 and x < 30:
-   print('Overweight')
-if x >= 30:
-   print('Obesity')
+elif 25 <= bmi < 30:
+    print("Overweight")
+else:
+    print("Obese")
