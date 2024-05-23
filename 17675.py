@@ -11,6 +11,7 @@ def is_fibonacci(n):
 num = int(input())
 
 s=''
+
 for i in range(1,num+1):
     if is_fibonacci(i):
         s+='+'
